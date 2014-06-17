@@ -1,7 +1,7 @@
 gulp-htccs-webapp
 =====================
 
-# Forked from yeoman gulp-webapp but added some features for our web front-end template
+Forked from yeoman gulp-webapp but added some features for our web front-end template
 
 ## key setting
 1. coffee script
