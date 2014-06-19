@@ -9,22 +9,21 @@ _require = (module)->
   return require(module)
 
 # HTML
-gulp.task "html", ->
+gulp.task "usemin", ->
   all_config = _require("../../config/all_config")
-  cssFilter = $.filter('**/*.css')
 
   gulp.src("app/*.html")
   .pipe($.swig(data: all_config))
-  .pipe($.useref.assets())
-  .pipe(cssFilter)
-  .pipe($.csso())
-  .pipe(cssFilter.restore())
-  .pipe($.useref.restore())
-  .pipe($.useref())
+  .pipe( $.usemin(
+    css: [$.csso(), $.minifyCss(), 'concat', $.rev()]
+    html: [$.minifyHtml(empty: false)]
+    js: [$.uglify(), $.rev()]
+  ))
   .pipe(gulp.dest("dist"))
   .pipe $.size()
 
-  #append git version finally
+
+gulp.task "html", ["usemin"], ->
   gulp.src('dist/*.html')
   .pipe( $.gitversion())
-  .pipe(gulp.dest("dist"))
+  .pipe( gulp.dest('dist/'))

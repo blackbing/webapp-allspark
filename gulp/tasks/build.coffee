@@ -4,7 +4,7 @@ gulp = require("gulp")
 gulp.task "build", [
   "browserify:build"
   "styles:build"
-  "html"
   "images"
   "fonts"
-]
+], ->
+  gulp.start "html"
