@@ -11,7 +11,7 @@ gulp.task "chmod-dist", ->
   gulp.src('.dist/**/*')
   .pipe( gulp.dest('dist'))
 
-gulp.task "chmod", ->
+gulp.task "chmod", (callback)->
   runSequence = require('run-sequence')
 
   runSequence(
@@ -23,6 +23,7 @@ gulp.task "chmod", ->
       read: false
     )
     .pipe $.rimraf()
+    callback()
   )
 
 

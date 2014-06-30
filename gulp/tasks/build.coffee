@@ -1,7 +1,8 @@
 gulp = require("gulp")
+$ = require("gulp-load-plugins")()
 
 done = ()->
-  console.log 'All Done!'
+  $.util.log 'All Done!'
 
 # Build
 gulp.task "build", ->
