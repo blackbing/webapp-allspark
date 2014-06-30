@@ -4,7 +4,7 @@ gulp = require("gulp")
 $ = require("gulp-load-plugins")()
 
 # Watch
-gulp.task "watch", ["connect"], ->
+gulp.task "server", ["connect"], ->
 
   # Watch for changes in `app` folder
   gulp.watch [
