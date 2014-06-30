@@ -13,11 +13,13 @@ gulp.task "connect", ->
       "app"
     ]
     port: 3000
-    livereload: true
-    #setting proxy for development
-    #middleware: (connect, o)->
-    #  api = url.parse('http://XXXX/api')
-    #  api.route = '/api'
+    livereload: true,
+    middleware: (connect, o)->
+      api_reportabuse = url.parse('http://sb-test-review.usw1.cs-htc.net:8089')
+      api_reportabuse.route = '/api_reportabuse'
 
-    #  [proxy(api), proxy(api_zero)]
+      api_zero =  url.parse('https://zero-test.sense-cs.com/')
+      api_zero.route = '/api_zero'
+
+      [proxy(api_reportabuse), proxy(api_zero)]
   )

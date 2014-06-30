@@ -6,8 +6,9 @@ $ = require("gulp-load-plugins")()
 # Clean
 gulp.task "clean", ->
   gulp.src([
-    "dist/**/*"
+    "dist/**/*.*"
+    "public/**/*.*"
   ],
     read: false
   )
-  .pipe $.clean()
+  .pipe $.rimraf()

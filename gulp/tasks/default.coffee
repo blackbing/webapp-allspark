@@ -1,6 +1,6 @@
 gulp = require("gulp")
 
 # Default task
-gulp.task "default", ["clean"], ->
+gulp.task "default", ->
   gulp.start "build"
   return
