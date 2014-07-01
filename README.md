@@ -18,14 +18,14 @@ npm i && bower i && bundle install
 # How to run it?
 
 ```shell
-gulp watch
+gulp server
 ```
 and open browser <http://localhost:3000>
 
 # Build project
 
 ```shell
-gulp
+gulp build
 ```
 
 # Build project as production
