@@ -1,4 +1,4 @@
-gulp-htccs-webapp
+htccs-webapp
 =====================
 
 Forked from yeoman gulp-webapp but added some features for our web front-end template
