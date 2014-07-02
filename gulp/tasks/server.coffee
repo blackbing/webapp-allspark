@@ -37,6 +37,6 @@ gulp.task "server", ["connect"], ->
   gulp.watch [
     "app/*.html"
     "config/conf/*.json"
-  ], ["swig"]
-  gulp.start "swig"
+  ], ["template"]
+  gulp.start "template"
   return

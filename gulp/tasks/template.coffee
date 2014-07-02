@@ -9,11 +9,11 @@ _require = (module)->
   delete require.cache[require.resolve(module)]
   return require(module)
 
-# swig
-gulp.task "swig", ->
+# generate html template
+gulp.task "template", ->
   all_config = _require("../../config/all_config")
 
   console.log all_config
   gulp.src("app/*.html")
-  .pipe($.swig(data: all_config))
+  .pipe($.template(all_config))
   .pipe gulp.dest(compiledPath + "/")

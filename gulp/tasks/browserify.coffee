@@ -22,4 +22,3 @@ gulp.task "browserify:build", ->
   .pipe($.streamify($.uglify(outSourceMap: true)))
   .pipe( $.streamify($.gitversion()))
   .pipe gulp.dest("dist/scripts/")
-  return

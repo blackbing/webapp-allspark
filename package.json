@@ -28,7 +28,6 @@
     "gulp-coffee": "^2.0.1",
     "gulp-compass": "^1.1.8",
     "gulp-uglify": "^0.3.0",
-    "gulp-swig": "^0.6.0",
     "gulp-gitversion": "0.0.7",
     "gulp-streamify": "0.0.5",
     "gulp-minify-css": "^0.3.4",
@@ -45,13 +44,14 @@
     "envify": "^1.2.1",
     "coffee-script": "^1.7.1",
     "vinyl-source-stream": "^0.1.1",
-    "browserify": "^4.1.10",
+    "browserify": "^4.2.0",
     "streamify": "^0.2.4",
     "reactify": "^0.13.1",
     "proxy-middleware": "^0.5.0",
     "lodash": "^2.4.1",
     "run-sequence": "^0.3.6",
-    "gulp-chmod": "^0.2.1"
+    "gulp-chmod": "^0.2.1",
+    "gulp-template": "^0.1.1"
   },
   "browserify": {
     "transform": [
