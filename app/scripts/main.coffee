@@ -1,1 +1,1 @@
-require('./app').start()
+require('./components/app').start()

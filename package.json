@@ -51,7 +51,8 @@
     "lodash": "^2.4.1",
     "run-sequence": "^0.3.6",
     "gulp-chmod": "^0.2.1",
-    "gulp-template": "^0.1.1"
+    "gulp-template": "^0.1.1",
+    "vinyl-map": "^1.0.1"
   },
   "browserify": {
     "transform": [

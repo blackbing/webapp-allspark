@@ -1,24 +1,47 @@
 gulp = require("gulp")
 source = require('vinyl-source-stream')
 browserify = require('browserify')
+map = require('vinyl-map')
 
 # Load plugins
 $ = require("gulp-load-plugins")()
 compiledPath = ".tmp"
 
-gulp.task "browserify", ->
-  browserify(
-    entries: ['./app/scripts/main.coffee']
-    extensions: ['.coffee', '.hbs']
+get_name = (filename)->
+  appRoot = "#{__dirname}/"
+  fname = filename.replace(appRoot, '')
+
+  fname.substring(fname.lastIndexOf('/')+1, fname.lastIndexOf('.'))
+
+gulp.task "browserify", (callback)->
+  bundleApp = map( (contents, filename)->
+    fname = get_name(filename)
+    browserify(
+      entries: [filename]
+      extensions: ['.coffee']
+    )
+    .bundle({debug: true})
+    .on('error', $.util.log )
+    .pipe(source("#{fname}.js"))
+    .pipe gulp.dest(compiledPath + "/scripts/")
   )
-  .bundle({debug: true})
-  .on('error', (error)->console.error(error))
-  .pipe(source('main.js'))
-  .pipe( $.streamify($.gitversion()))
-  .pipe gulp.dest(compiledPath + "/scripts/")
+
+  gulp.src('app/scripts/*.coffee')
+  .pipe(bundleApp)
 
 gulp.task "browserify:build", ->
-  gulp.tasks["browserify"].fn()
-  .pipe($.streamify($.uglify(outSourceMap: true)))
-  .pipe( $.streamify($.gitversion()))
-  .pipe gulp.dest("dist/scripts/")
+  bundleApp = map( (contents, filename)->
+    fname = get_name(filename)
+    browserify(
+      entries: [filename]
+      extensions: ['.coffee']
+    )
+    .bundle({debug: true})
+    .on('error', $.util.log )
+    .pipe(source("#{fname}.js"))
+    .pipe( $.streamify($.uglify(outSourceMap: true)))
+    .pipe gulp.dest(compiledPath + "/scripts/")
+  )
+
+  gulp.src('app/scripts/*.coffee')
+  .pipe(bundleApp)
