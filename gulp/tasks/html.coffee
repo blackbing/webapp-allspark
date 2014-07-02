@@ -13,7 +13,7 @@ gulp.task "usemin", ->
   all_config = _require("../../config/all_config")
 
   gulp.src("app/*.html")
-  .pipe($.swig(data: all_config))
+  .pipe($.template(all_config))
   .pipe( $.usemin(
     css: [$.csso(), $.minifyCss(), 'concat', $.rev()]
     html: [$.minifyHtml(empty: false)]
