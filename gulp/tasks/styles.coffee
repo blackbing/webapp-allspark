@@ -10,12 +10,13 @@ compiledPath = ".tmp"
 gulp.task "styles", ->
   gulp.src("app/styles/**/*.scss")
   .pipe($.compass(
-    debug: true
     project: "."
     config_file: "./config/compass.config.rb"
     css: compiledPath + "/styles"
     sass: "app/styles"
     relative: false
+    bundle_exec: true
+    debug: true
     #import_path: "app/bower_components"
   ))
   .pipe(gulp.dest(compiledPath + "/styles"))
@@ -29,6 +30,8 @@ gulp.task "styles:build", ->
     css: "dist/styles"
     sass: "app/styles"
     relative: false
+    bundle_exec: true
+    debug: true
     #import_path: "app/bower_components"
   ))
   .pipe(minifyCSS())
