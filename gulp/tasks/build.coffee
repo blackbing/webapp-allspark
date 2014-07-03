@@ -1,11 +1,8 @@
 gulp = require("gulp")
 $ = require("gulp-load-plugins")()
 
-done = ()->
-  $.util.log 'All Done!'
-
 # Build
-gulp.task "build", ->
+gulp.task "build", (callback)->
   runSequence = require('run-sequence')
   runSequence(
     'clean'
@@ -17,4 +14,7 @@ gulp.task "build", ->
     ]
     'html'
     'chmod'
-  , done)
+  , ->
+    $.util.log $.util.colors.cyan 'All build tasks done!'
+    callback()
+  )
