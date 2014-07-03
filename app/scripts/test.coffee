@@ -1,1 +1,1 @@
-$('#app').html('<h1>gulp-htccs-webapp</h1>')
+$('#app').html('<h1>htccs-webapp</h1>')
