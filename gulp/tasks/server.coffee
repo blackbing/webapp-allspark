@@ -28,6 +28,7 @@ gulp.task "server", ["connect"], ->
     "app/scripts/**/*.coffee"
     "app/scripts/**/*.hbs"
     "app/scripts/**/*.js"
+    "config/conf/*.json"
   ], ["browserify"]
   gulp.start "browserify"
 
