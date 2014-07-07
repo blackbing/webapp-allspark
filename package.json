@@ -4,7 +4,7 @@
   "description": "gulp-htccs-webapp",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "gulp-filter": "^0.4.1",
     "gulp-rimraf": "^0.1.0",
     "gulp-notify": "^1.4.0",
-    "gulp-karma": "0.0.4",
     "karma": "^0.12.16",
     "karma-browserify": "^0.2.1",
     "karma-jasmine": "^0.1.5",
