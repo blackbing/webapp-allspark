@@ -1,5 +1,5 @@
 helper = require("./support/helper")
-auth = require("../app/scripts/service/auth")
+auth = require("../../app/scripts/service/auth")
 
 describe "this example", ->
   it "should import a helper module", ->

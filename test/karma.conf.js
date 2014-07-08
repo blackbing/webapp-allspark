@@ -2,11 +2,11 @@
 // Generated on Mon Jun 10 2013 09:57:07 GMT-0500 (CDT)
 
 module.exports = function(config) {
-  var reportUrl = 'report/';
+  var reportUrl = './report/';
   config.set({
 
     // base path, that will be used to resolve files and exclude
-    basePath: '',
+    basePath: '../',
 
 
     // frameworks to use
@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*'
+      'test/spec/**/*.coffee'
     ],
 
 
@@ -90,7 +90,7 @@ module.exports = function(config) {
     },
 
     // Add browserify to preprocessors
-    preprocessors: {'test/*': ['browserify']}
+    preprocessors: {'test/spec/**/*.coffee': ['browserify']}
 
     // Not required if you've installed karma-browserify via npm.
     //plugins: ['karma-*', require('../')]
