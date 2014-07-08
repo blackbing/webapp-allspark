@@ -57,7 +57,9 @@
     "run-sequence": "^0.3.6",
     "gulp-chmod": "^0.2.1",
     "gulp-template": "^0.1.1",
-    "vinyl-map": "^1.0.1"
+    "vinyl-map": "^1.0.1",
+    "karma-html-reporter": "^0.2.3",
+    "karma-junit-reporter": "^0.2.2"
   },
   "browserify": {
     "transform": [

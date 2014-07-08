@@ -12,3 +12,4 @@ test/bower_components
 .tmp
 build
 .DS_Store
+report

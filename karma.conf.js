@@ -2,6 +2,7 @@
 // Generated on Mon Jun 10 2013 09:57:07 GMT-0500 (CDT)
 
 module.exports = function(config) {
+  var reportUrl = 'report/';
   config.set({
 
     // base path, that will be used to resolve files and exclude
@@ -26,8 +27,12 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['dots', 'progress', 'junit', 'html'],
 
+    junitReporter: {
+      outputFile: reportUrl + 'junit/test-results.xml',
+      suite: ''
+    },
 
     // web server port
     port: 9876,
@@ -77,6 +82,11 @@ module.exports = function(config) {
       // debug: true,
       // noParse: ['jquery'],
       watch: true,
+    },
+    // the default configuration
+    htmlReporter: {
+      outputDir: reportUrl + 'junit',
+      templatePath: 'node_modules/karma-html-reporter/jasmine_template.html'
     },
 
     // Add browserify to preprocessors
