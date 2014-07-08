@@ -4,7 +4,7 @@
   "description": "gulp-htccs-webapp",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
