@@ -22,6 +22,12 @@ gulp server
 ```
 and open browser <http://localhost:3000>
 
+# Test 
+
+```shell
+gulp test
+```
+
 # Build project
 
 ```shell
