@@ -14,7 +14,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "app/bower_components/react/react-with-addons.js",
       'test/*'
     ],
 
@@ -59,7 +58,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // If browser does not capture in given timeout [ms], kill it
