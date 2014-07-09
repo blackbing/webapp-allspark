@@ -1,1 +1,1 @@
-require('./components/app').start()
+module.exports = require('./components/app').start()
