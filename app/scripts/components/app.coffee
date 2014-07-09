@@ -11,4 +11,4 @@ App = React.createClass
     )
 module.exports =
   start: ->
-    React.renderComponent(App(), document.querySelector('#app'))
+    @component = React.renderComponent(App(), document.querySelector('#app'))

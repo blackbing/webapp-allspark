@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'test/polyfill/*.js',
+      'app/bower_components/jquery/dist/jquery.js',
       'app/bower_components/react/react-with-addons.js',
       'test/spec/**/*.coffee'
     ],
