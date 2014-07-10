@@ -10,7 +10,7 @@ module.exports = function(config) {
 
 
     // frameworks to use
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
@@ -18,7 +18,7 @@ module.exports = function(config) {
       'test/polyfill/*.js',
       'app/bower_components/jquery/dist/jquery.js',
       'app/bower_components/react/react-with-addons.js',
-      'test/spec/**/*.coffee'
+      '.tmp/test/spec/*.js'
     ],
 
 
@@ -77,23 +77,14 @@ module.exports = function(config) {
     // if true, it capture browsers, run tests and exit
     singleRun: true,
 
-    // Browserify config (all optional)
-    browserify: {
-      extensions: ['.coffee'],
-      // ignore: [],
-      //transform: ['coffeeify'],
-      // debug: true,
-      // noParse: ['jquery'],
-      watch: true,
-    },
     // the default configuration
     htmlReporter: {
       outputDir: reportUrl + 'junit',
       templatePath: 'node_modules/karma-html-reporter/jasmine_template.html'
-    },
+    }
 
     // Add browserify to preprocessors
-    preprocessors: {'test/spec/**/*.coffee': ['browserify']}
+    //preprocessors: {'test/spec/**/*.coffee': ['browserify']}
 
     // Not required if you've installed karma-browserify via npm.
     //plugins: ['karma-*', require('../')]

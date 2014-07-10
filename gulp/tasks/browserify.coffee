@@ -45,3 +45,19 @@ gulp.task "browserify:build", ->
 
   gulp.src('app/scripts/*.coffee')
   .pipe(bundleApp)
+
+gulp.task "browserify:test", (callback)->
+  bundleApp = map( (contents, filename)->
+    fname = get_name(filename)
+    browserify(
+      entries: [filename]
+      extensions: ['.coffee']
+    )
+    .bundle({debug: true})
+    .on('error', $.util.log )
+    .pipe(source("#{fname}.js"))
+    .pipe gulp.dest(compiledPath + "/test/spec")
+  )
+
+  gulp.src('test/spec/**/*.coffee')
+  .pipe(bundleApp)

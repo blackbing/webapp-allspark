@@ -41,7 +41,6 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-notify": "^1.4.0",
     "karma": "^0.12.16",
-    "karma-browserify": "^0.2.1",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "coffeeify": "^0.6.0",

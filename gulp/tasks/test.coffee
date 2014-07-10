@@ -3,7 +3,7 @@ exec = exec = require('child_process').exec
 
 $ = require("gulp-load-plugins")()
 
-gulp.task "test", (callback)->
+gulp.task "test", ['browserify:test'], (callback)->
   appRoot = "#{__dirname}/../../"
   karmaCommand = appRoot + './node_modules/karma/bin/karma'
   karmaConfig = appRoot + 'test/karma.conf.js'
