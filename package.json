@@ -1,21 +1,21 @@
 {
-  "name": "gulp-htccs-webapp",
+  "name": "htccs-webapp",
   "version": "0.0.1",
-  "description": "gulp-htccs-webapp",
+  "description": "htccs-webapp",
   "main": "gulpfile.js",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/htcrails/prism-promotion-frontend.git"
+    "url": "git@github.com:htcrails/htccs-webapp.git"
   },
   "author": "blackbing",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blackbing/gulp-htccs-webapp/issues"
+    "url": "https://github.com/htcrails/htccs-webapp/issues"
   },
-  "homepage": "https://github.com/blackbing/gulp-htccs-webapp",
+  "homepage": "https://github.com/htcrails/htccs-webapp/htccs-webapp",
   "devDependencies": {
     "gulp": "^3.8.5",
     "gulp-load-plugins": "^0.5.0",
