@@ -12,3 +12,11 @@ gulp.task "clean", ->
     read: false
   )
   .pipe $.rimraf()
+
+gulp.task "clean:test", ->
+  gulp.src([
+    ".tmp/test/spec/**/*.*"
+  ],
+    read: false
+  )
+  .pipe $.rimraf()
