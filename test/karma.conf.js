@@ -18,7 +18,7 @@ module.exports = function(config) {
       'test/polyfill/*.js',
       'app/bower_components/jquery/dist/jquery.js',
       'app/bower_components/react/react-with-addons.js',
-      '.tmp/test/spec/*.js'
+      '.tmp/test/spec/**/*.js'
     ],
 
 

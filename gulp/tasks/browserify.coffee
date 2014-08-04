@@ -2,6 +2,7 @@ gulp = require("gulp")
 source = require('vinyl-source-stream')
 browserify = require('browserify')
 map = require('vinyl-map')
+path = require('path')
 
 # Load plugins
 $ = require("gulp-load-plugins")()
@@ -12,6 +13,11 @@ get_name = (filename)->
   fname = filename.replace(appRoot, '')
 
   fname.substring(fname.lastIndexOf('/')+1, fname.lastIndexOf('.'))
+
+get_path = (filename)->
+  appRoot = path.normalize("#{__dirname}/../../")
+  fname = filename.replace(appRoot, '')
+  fname.substring(0, fname.lastIndexOf('/')+1)
 
 gulp.task "browserify", (callback)->
   bundleApp = map( (contents, filename)->
@@ -49,6 +55,7 @@ gulp.task "browserify:build", ->
 gulp.task "browserify:test", (callback)->
   bundleApp = map( (contents, filename)->
     fname = get_name(filename)
+    fpath = get_path(filename)
     browserify(
       entries: [filename]
       extensions: ['.coffee']
@@ -56,7 +63,7 @@ gulp.task "browserify:test", (callback)->
     .bundle({debug: true})
     .on('error', $.util.log )
     .pipe(source("#{fname}.js"))
-    .pipe gulp.dest(compiledPath + "/test/spec")
+    .pipe gulp.dest(compiledPath + '/' +fpath)
   )
 
   gulp.src('test/spec/**/*.coffee')
