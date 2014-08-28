@@ -45,7 +45,7 @@ gulp.task "browserify:build", ->
     .bundle({debug: true})
     .on('error', $.util.log )
     .pipe(source("#{fname}.js"))
-    .pipe( $.streamify($.uglify(outSourceMap: true)))
+    .pipe( $.streamify($.uglifyjs(outSourceMap: true)))
     .pipe gulp.dest(compiledPath + "/scripts/")
   )
 
