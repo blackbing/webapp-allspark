@@ -11,7 +11,8 @@ gulp.task "connect", ->
     root: [
       compiledPath
       "app"
-      "node_modules"
+      #for link to right source map
+      "./"
     ]
     port: 3000
     livereload: true,
