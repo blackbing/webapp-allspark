@@ -11,6 +11,7 @@ gulp.task "connect", ->
     root: [
       compiledPath
       "app"
+      "node_modules"
     ]
     port: 3000
     livereload: true,

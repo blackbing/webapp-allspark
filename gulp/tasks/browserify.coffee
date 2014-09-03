@@ -1,8 +1,10 @@
 gulp = require("gulp")
 source = require('vinyl-source-stream')
 browserify = require('browserify')
+exorcist   = require('exorcist')
 map = require('vinyl-map')
 path = require('path')
+mold = require('mold-source-map')
 
 # Load plugins
 $ = require("gulp-load-plugins")()
@@ -28,6 +30,8 @@ gulp.task "browserify", (callback)->
     )
     .bundle({debug: true})
     .on('error', $.util.log )
+    .pipe(mold.transformSourcesRelativeTo(""))
+    .pipe(exorcist(compiledPath + "/scripts/#{fname}.js.map"))
     .pipe(source("#{fname}.js"))
     .pipe gulp.dest(compiledPath + "/scripts/")
   )
