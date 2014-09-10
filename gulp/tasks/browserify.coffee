@@ -1,6 +1,7 @@
 gulp = require("gulp")
 source = require('vinyl-source-stream')
 browserify = require('browserify')
+watchify = require('watchify')
 exorcist   = require('exorcist')
 map = require('vinyl-map')
 path = require('path')
@@ -24,16 +25,29 @@ get_path = (filename)->
 gulp.task "browserify", (callback)->
   bundleApp = map( (contents, filename)->
     fname = get_name(filename)
-    browserify(
+    bundler = browserify(
+      # Required watchify args
+      cache: {}
+      packageCache: {}
+      fullPaths: true
+      # Specify the entry point of your app
       entries: [filename]
       extensions: ['.coffee']
+      debug: true
     )
-    .bundle({debug: true})
-    .on('error', $.util.log )
-    .pipe(mold.transformSourcesRelativeTo(""))
-    .pipe(exorcist(compiledPath + "/scripts/#{fname}.js.map"))
-    .pipe(source("#{fname}.js"))
-    .pipe gulp.dest(compiledPath + "/scripts/")
+
+    bundle = (ids)->
+      bundler.bundle()
+      .on('error', $.util.log )
+      .pipe(mold.transformSourcesRelativeTo(""))
+      .pipe(exorcist(compiledPath + "/scripts/#{fname}.js.map"))
+      .pipe(source("#{fname}.js"))
+      .pipe gulp.dest(compiledPath + "/scripts/")
+      .pipe( if ids then $.notify(message: "#{ids.join(',')} compiles finished.", title:'SUCCESS!') else $.util.noop())
+
+    bundler = watchify(bundler)
+    bundler.on('update', bundle)
+    return bundle()
   )
 
   gulp.src('app/scripts/*.coffee')
@@ -46,7 +60,7 @@ gulp.task "browserify:build", ->
       entries: [filename]
       extensions: ['.coffee']
     )
-    .bundle({debug: true})
+    .bundle()
     .on('error', $.util.log )
     .pipe(source("#{fname}.js"))
     .pipe( $.streamify($.uglifyjs(outSourceMap: true)))
@@ -63,8 +77,9 @@ gulp.task "browserify:test", (callback)->
     browserify(
       entries: [filename]
       extensions: ['.coffee']
+      debug: true
     )
-    .bundle({debug: true})
+    .bundle()
     .on('error', $.util.log )
     .pipe(source("#{fname}.js"))
     .pipe gulp.dest(compiledPath + '/' +fpath)
