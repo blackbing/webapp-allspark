@@ -24,12 +24,12 @@ gulp.task "server", ["connect"], ->
   gulp.start "styles"
 
   # Watch .js files
-  gulp.watch [
-    "app/scripts/**/*.coffee"
-    "app/scripts/**/*.hbs"
-    "app/scripts/**/*.js"
-    "config/conf/*.json"
-  ], ["browserify"]
+  #gulp.watch [
+  #  "app/scripts/**/*.coffee"
+  #  "app/scripts/**/*.hbs"
+  #  "app/scripts/**/*.js"
+  #  "config/conf/*.json"
+  #], ["browserify"]
   gulp.start "browserify"
 
   # Watch image files
