@@ -16,7 +16,7 @@ gulp.task "server", ["connect"], ->
   ], (event) ->
     gulp.src(event.path)
     .pipe $.connect.reload()
-    .pipe $.notify( message:'reload')
+    #.pipe $.notify( message:'reload')
 
 
   # Watch .scss files
