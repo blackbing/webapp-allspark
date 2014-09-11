@@ -1,11 +1,12 @@
 # webapp-allspark
+=====================
 
 ![allspark](http://i.imgur.com/VI4mdtp.jpg?1)
 
-*The All Spark as seen on the Transfomers movies*
-=====================
+The All Spark as seen on the Transfomers movies
 
-## About
+
+# About
 
 webapp-allspark is our Web-app Start-kit for generating a pure frontend project.
 
