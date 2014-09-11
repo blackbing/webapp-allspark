@@ -12,7 +12,7 @@ webapp-allspark is our Web-app Start-kit for generating a pure frontend project.
 ## key setting
 1. coffee script
 2. reactjs
-3. browserify
+3. browserify (*multiple entries, most reference is single entry*)
 4. compass
 
 # Install
