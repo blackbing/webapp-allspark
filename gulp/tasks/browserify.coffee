@@ -45,8 +45,9 @@ gulp.task "browserify", (callback)->
       .pipe gulp.dest(compiledPath + "/scripts/")
       .pipe( if ids then $.notify(message: "#{ids.join(',')} compiles finished.", title:'SUCCESS!') else $.util.noop())
 
-    bundler = watchify(bundler)
-    bundler.on('update', bundle)
+    if global.isWatching
+      bundler = watchify(bundler)
+      bundler.on('update', bundle)
     return bundle()
   )
 

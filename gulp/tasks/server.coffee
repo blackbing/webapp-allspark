@@ -6,6 +6,7 @@ $ = require("gulp-load-plugins")()
 # Watch
 gulp.task "server", ["connect"], ->
 
+  global.isWatching = true
   # Watch for changes in `app` folder
   gulp.watch [
     ".tmp/*.html"
