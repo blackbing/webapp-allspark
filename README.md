@@ -1,5 +1,4 @@
 # webapp-allspark
-=====================
 
 ![allspark](http://i.imgur.com/VI4mdtp.jpg?1)
 
