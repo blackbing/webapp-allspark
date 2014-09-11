@@ -1,7 +1,13 @@
-htccs-webapp
+# webapp-allspark
+
+![allspark](http://i.imgur.com/VI4mdtp.jpg?1)
+
+*The All Spark as seen on the Transfomers movies*
 =====================
 
-Forked from yeoman gulp-webapp but added some features for our web front-end template
+## About
+
+webapp-allspark is our Web-app Start-kit for generating a pure frontend project.
 
 ## key setting
 1. coffee script
