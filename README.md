@@ -30,7 +30,7 @@ and open browser <http://localhost:3000>
 
 # Test 
 
-You can add test script at here: <tree/develop/test/spec>
+You can add test script at here: [/test/spec](https://github.com/blackbing/webapp-allspark/tree/develop/test/spec)
 
 ```shell
 gulp test
