@@ -30,6 +30,8 @@ and open browser <http://localhost:3000>
 
 # Test 
 
+You can add test script at here: <tree/develop/test/spec>
+
 ```shell
 gulp test
 ```
@@ -43,5 +45,5 @@ gulp build
 # Build project as production
 
 ```shell
-NODE_ENV=production gulp
+NODE_ENV=production gulp build
 ```
