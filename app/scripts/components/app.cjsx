@@ -1,5 +1,3 @@
-# @cjsx React.DOM
-
 R = React.DOM
 
 App = React.createClass
