@@ -1,14 +1,19 @@
+# @cjsx React.DOM
 
 R = React.DOM
 
 App = React.createClass
-  displayName: 'App'
+  onClick: ->
+    alert('Splendid!')
   render: ->
-    R.div( className:"jumbotron",
-      R.div( null, R.h1(null, process.env.app_title))
-      R.p( {className:"lead"}, "Always a pleasure scaffolding your apps.")
-      R.p(null, R.a( {className:"btn btn-lg btn-success", href:"#"}, "Splendid!"))
-    )
+    <div className="jumbotron">
+      <div>
+        <h1>{process.env.app_title}</h1>
+        <p className="lead">Always a pleasure scaffolding your apps.</p>
+        <p> <a className="btn btn-lg btn-success" href="#" onClick={@onClick}>Splendid!</a> </p>
+      </div>
+    </div>
+
 module.exports =
   start: ->
     @component = React.renderComponent(App(), document.querySelector('#app'))
