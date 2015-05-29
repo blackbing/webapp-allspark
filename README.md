@@ -1,5 +1,6 @@
 # webapp-allspark
 
+
 ![allspark](http://i.imgur.com/VI4mdtp.jpg?1)
 
 The All Spark as seen on the Transfomers movies
@@ -7,43 +8,59 @@ The All Spark as seen on the Transfomers movies
 
 # About
 
-webapp-allspark is our Web-app Start-kit for generating a pure frontend project.
+webapp-allspark is our Web-app Start-kit for generating a pure frontend project. it is forked from [gulp-starter 2.0](https://github.com/greypants/gulp-starter/tree/2.0).
 
-## key setting
-1. coffee script
-2. reactjs
-3. browserify (*multiple entries, most reference is single entry*)
-4. compass
+# Key Setting
+1. ES6
+2. SCSS
+3. webpack
+4. reactjs
+5. gulp
+============
+## Revisions
+- Full asset pipeline and static html compilation
+- New directory structure
+- Replaced Browserify with [Webpack](http://webpack.github.io/docs/webpack-for-browserify-users.html)!
+  - Async CommonJS module requires
+  - Automatically splits out shared dependencies
+  - New `html` task w/ Swig templating/compiling
+- Replace CoffeeScript with ES6 ([Babel.js](http://babeljs.io/))
+- New `server` task to test production files locally
+- New `deploy` task to deploy the public directory to gh-pages
+- New `rev` task that revisions filenames and compress css and js
+- Use `gulp-watch` instead of `gulp.watch` (correctly handles new files)
+- New `build:production` task runs tests, compression + filename revisioning
+- Remove old examples and extraneous dependencies
+- Upgrade dependencies (BrowserSync 2!)
+- Added example Travis CI integration that runs karma tests and production build
 
-# Install
+## Live Demo
+http://greypants.github.io/gulp-starter/
+Result of running `gulp deploy`
 
-```shell
-npm i && bower i && bundle install
+## Install dependencies
+```
+npm install
 ```
 
-# How to run it?
+## Start gulp
+```
+gulp
+```
+You may need to alias `gulp` to `node_modules/.bin/gulp`, or `npm install -g gulp`.
 
-```shell
+Start editing assets and views from the `gulp/assets` and `gulp/views` folder. Files compile to `public`.
+
+## Preview production environment
+```
+gulp build:production
 gulp server
 ```
-and open browser <http://localhost:3000>
 
-# Test 
-
-You can add test script at here: [/test/spec](https://github.com/blackbing/webapp-allspark/tree/develop/test/spec)
-
-```shell
-gulp test
+## Deploy to GitHub pages
 ```
-
-# Build project
-
-```shell
-gulp build
+gulp deploy
 ```
+This will run karma, build your files, revision and compress them, and copy the contents of the public folder to a `gh-pages` branch, and push it up to GitHub.
 
-# Build project as production
-
-```shell
-NODE_ENV=production gulp build
-```
+[![Build Status](https://travis-ci.org/greypants/gulp-starter.svg?branch=static-server)](https://travis-ci.org/greypants/gulp-starter)

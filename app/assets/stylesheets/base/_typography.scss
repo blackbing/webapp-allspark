@@ -1,0 +1,41 @@
+@include font-face(OpenSans, '../fonts/OpenSans-Regular-webfont');
+@include font-face(OpenSans, '../fonts/OpenSans-Bold-webfont', bold);
+
+body{
+  @include font-smoothing; // <- _mixins.scss
+  color: $dark-grey;
+  font-family: OpenSans, sans-serif;
+  font-size: 1.25em;
+  padding: 5%;
+  text-align: center;
+}
+
+small{
+  font-size: 0.75em;
+  margin-top: 0.25em;
+}
+
+code{
+  background-color: $light-grey;
+  border-radius: 3px;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 1.25em;
+  padding: 0.25em 0.5em;
+}
+
+a{
+  color: $red;
+  opacity: 0.8;
+  text-decoration: none;
+  // autoprefixer will prefix this for you!
+  transition: all .2s ease-in-out;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+.screenreader{
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}

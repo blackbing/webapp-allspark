@@ -1,0 +1,21 @@
+@import "themes/cosmo/bootstrap";
+@import "base/overwrite";
+@import "base/footer";
+
+body {
+  padding-top: 120px;
+}
+
+
+
+.logo {
+   background-image: url(../images/logo.png);
+   width: 46px;
+   height: 100px;
+   background-size: cover;
+   display:inline-block;
+   float: left;
+
+}
+
+
